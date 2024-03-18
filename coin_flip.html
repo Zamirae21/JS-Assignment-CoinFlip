@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+    <style>
+        /* Add any necessary CSS styles here */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coin Flip Game</h1>
+    </header>
+    
+    <main>
+        <p>Welcome to the Coin Flip Game! Guess whether the coin will land on heads or tails:</p>
+        <label for="userChoice">Your choice:</label>
+        <input type="text" id="userChoice" placeholder="Enter heads or tails">
+        <button onclick="flipCoin()">Flip Coin</button>
+        <p id="resultMessage"></p>
+    </main>
+
+    <footer>
+        <p>Created by Zamira Estrada | <a href="https://github.com/Zamirae21" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script>
+        // Your JavaScript code for Part I (Coin Flip Game)
+        function flipCoin() {
+            // Generate a random number (0 or 1)
+            const randomNumber = Math.floor(Math.random() * 2);
+
+            // Get the user's choice from the input field
+            const userChoice = document.getElementById('userChoice').value.toLowerCase();
+
+            // Determine the computer's choice based on the random number
+            const computerChoice = randomNumber === 0 ? 'heads' : 'tails';
+
+            // Update the resultMessage based on the comparison
+            const resultMessageElement = document.getElementById('resultMessage');
+
+            if (userChoice === computerChoice) {
+                resultMessageElement.textContent = `You guessed right! The coin flip landed on ${userChoice}.`;
+            } else {
+                resultMessageElement.textContent = `Sorry, the coin flip landed on ${computerChoice}.`;
+            }
+
+            // Part II - Age Calculation and Conditionals
+            // Create a variable to store the birth year
+            let birthYear;
+
+            // Prompt the user for their birth year and assign it to birthYear
+            birthYear = prompt("Enter your birth year:");
+
+            // Calculate the current year
+            const currentYear = new Date().getFullYear();
+
+            // Calculate the user's age
+            const age = currentYear - parseInt(birthYear);
+
+            // Write conditionals for age
+            if (age > 21) {
+                alert("You are old enough to drink in the US");
+            } else if (age === 21) {
+                alert("You are old enough to drink in the US...barely");
+            } else {
+                alert("Sorry, you are not old enough to drink in the US");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
